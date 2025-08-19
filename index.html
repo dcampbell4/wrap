@@ -251,6 +251,66 @@
             const outputSection = document.getElementById('output-section');
             const essayOutput = document.getElementById('essay-output');
 
+            // Function to populate the fields with example data
+            function populateWithExamples() {
+                // Introduction
+                document.getElementById('defineIssue').value = 'Countless scientists and nature-lovers have the same item on their bucket lists: a visit to the Galapagos Islands. The environmental preserve made famous by Charles Darwin attracts loads of visitors every year.';
+                document.getElementById('significance').value = 'While this can be great for education and tourism, it puts the sensitive ecosystem at risk.';
+                document.getElementById('thesis').value = 'That is why, even though it offers some local and global benefits, Galapagos tourism should be discouraged because of the severe risks it poses to the environment.';
+
+                // Body Paragraph 1
+                document.getElementById('transitionTS1').value = 'One risk posed by Galapagos tourism';
+                document.getElementById('firstReasonTS1').value = 'is the degradation of the physical environment.';
+                document.getElementById('transitionCC1').value = 'It is often argued that';
+                document.getElementById('counterClaim1').value = 'tourism provides the needed financial support to support and protect and maintain this ecosystem.';
+                document.getElementById('transitionCC1Evidence').value = 'Indeed, as passage one states,';
+                document.getElementById('cc1Evidence').value = '"""tourism in Ecuador ... generates $1.2 billion per year."""';
+                document.getElementById('transitionRebuttal1').value = 'While this money is undoubtedly useful,';
+                document.getElementById('rebuttalClaim11').value = 'it has stimulated unregulated growth that is polluting a formerly peaceful environment:';
+                document.getElementById('evidence11').value = '“It’s unsustainable. More flights, more hotels, more cars. It\'s uncontrolled. We talk about ecotourism but in reality it\'s already showing signs of being mass tourism” (Passage 2).';
+                document.getElementById('elaboration11').value = 'Governments and businesses seek growth, so it is natural that a profitable tourist venture will lose sight of its environmental priorities.';
+                document.getElementById('claim12').value = 'This mass tourism also leads to an increase in waste and pollution.';
+                document.getElementById('evidence12').value = 'For instance, local communities and ecosystems are struggling to manage the influx of plastic waste from visitors.';
+                document.getElementById('elaborationLink11').value = 'The accumulation of waste directly impacts the fragile flora and fauna, demonstrating that the environmental cost of tourism outweighs its financial benefits.';
+                
+                // Body Paragraph 2
+                document.getElementById('transition21').value = 'Furthermore,';
+                document.getElementById('secondReasonTS2').value = 'the tourist-driven demand for resources puts immense pressure on the native species and their habitats.';
+                document.getElementById('transition22').value = 'On the other hand,';
+                document.getElementById('counterClaim21').value = 'some argue that revenue from tourism directly funds conservation efforts.';
+                document.getElementById('evidence21').value = 'According to the Galapagos Conservancy, a portion of the park entrance fees goes toward protecting the islands\' unique biodiversity.';
+                document.getElementById('transition23').value = 'While these funds are valuable,';
+                document.getElementById('rebuttalClaim21').value = 'the sheer number of human visitors disrupts delicate animal behaviors and introduces non-native species that threaten local wildlife.';
+                document.getElementById('transition24').value = 'For example,';
+                document.getElementById('evidence22').value = 'the constant presence of people and boats can cause stress to animals like marine iguanas and sea lions, altering their natural routines.';
+                document.getElementById('elaborationLink21').value = 'This disturbance, combined with the risk of foreign pathogens, presents a significant threat to the long-term survival of the island\'s endemic species.';
+                document.getElementById('claim22').value = 'Moreover, the increased human traffic brings in invasive species through luggage and food, which can outcompete and harm native flora and fauna.';
+                document.getElementById('transition25').value = 'In fact,';
+                document.getElementById('evidence23').value = 'a study found that the introduction of a single invasive plant species could drastically alter the entire island\'s ecosystem within a decade.';
+                document.getElementById('elaborationLink22').value = 'Therefore, the very act of visiting the islands, even with good intentions, poses an unavoidable and serious risk to their ecological integrity.';
+
+                // Body Paragraph 3
+                document.getElementById('transition31').value = 'Lastly,';
+                document.getElementById('thirdReasonTS3').value = 'the commercialization of the Galapagos Islands has shifted the focus of visits from conservation and education to simple recreation and entertainment.';
+                document.getElementById('transition32').value = 'It has been said that';
+                document.getElementById('counterClaim31').value = 'Galapagos Islands can send visitors home with a “renewed passion for the preservation of wildlife” (Passage One).';
+                document.getElementById('evidence31').value = 'Passage One also states that these visits can inspire a new generation of scientists and conservationists.';
+                document.getElementById('rebuttalClaim31').value = 'Education is a noble goal, but the massive number of visitors is evidence that more than just conservationists are making this trip:';
+                document.getElementById('evidence32').value = '“We talk about ecotourism, but…People aren\'t even coming for the wildlife any more. They just come for a vacation” (Passage Two).';
+                document.getElementById('elaborationLink31').value = 'This change in public translates to changes in behaviors.';
+                document.getElementById('claim32').value = 'Now people want to swim with the seals and pose for photos,';
+                document.getElementById('evidence33').value = 'reducing “a pristine natural environment” to a mere “place where tourists take ‘selfies’ with giant tortoises” (Passage Two).';
+                document.getElementById('elaborationLink32').value = 'If the Galapagos Islands are serious about promoting environmental preservation, they need to make this destination more about science and less about likes.';
+
+                // Conclusion
+                document.getElementById('restateThesis').value = 'It can clearly be seen that tourism to the Galapagos Islands has become unsustainable and dangerous.';
+                document.getElementById('reviewReasons').value = 'The massive number of visitors poses a threat to plants and animals, and has made the destination more about vacation than conservation.';
+                document.getElementById('callToAction').value = 'The economic and educational benefits are still worthwhile, so the most sensible solution would be to impose limits that allow true ecotourism to continue while better protecting the environment. Otherwise, there will be nothing left for visitors to see on these special Ecuadorian islands.';
+            }
+
+            // Populate on page load
+            populateWithExamples();
+
             generateBtn.addEventListener('click', () => {
                 const intro = [
                     document.getElementById('defineIssue').value.trim(),
@@ -328,8 +388,6 @@
                 essayOutput.select();
                 try {
                     document.execCommand('copy');
-                    // In an iframe, navigator.clipboard.writeText is often blocked
-                    // A message box is a better alternative to `alert`
                     const messageBox = document.createElement('div');
                     messageBox.innerText = 'Essay copied to clipboard!';
                     messageBox.style.cssText = `
